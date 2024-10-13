@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: wallet-service
+          uri: lb://WALLET-SERVICE
+          predicates:
+            - Path=/wallet/**
+        - id: transaction-service
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/transaction/**
+        - id: price-service
+          uri: lb://PRICE-SERVICE
+          predicates:
+            - Path=/price/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

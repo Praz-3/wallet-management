@@ -1,8 +1,8 @@
 package com.crypto.wallet.dto
 
-data class WalletRequest(
+data class WalletCreationRequest(
     val userId: Long,
     val walletAddress: String,
-    val cryptocurrencies: Set<String>,
-    val privateKey: String
+    val privateKey: String,
+    val initialBalances: List<CurrencyBalanceRequest>
 )

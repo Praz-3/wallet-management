@@ -1,4 +1,4 @@
-package com.crypto.wallet.dto
+package com.crypto.commons.dto
 
 data class WalletDetail(
     val id: Long,

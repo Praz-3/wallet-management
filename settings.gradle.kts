@@ -5,3 +5,5 @@ rootProject.name = "wallet-management"
 include("wallet-service")
 include("api-gateway")
 include("transaction-service")
+include("price-service")
+include("crypto-commons")

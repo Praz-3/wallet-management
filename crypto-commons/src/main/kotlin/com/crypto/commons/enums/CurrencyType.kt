@@ -1,4 +1,4 @@
-package com.crypto.wallet.model
+package com.crypto.commons.enums
 
 enum class CurrencyType {
     BITCOIN,

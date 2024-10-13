@@ -1,6 +1,6 @@
-package com.crypto.wallet.dto
+package com.crypto.commons.dto
 
-import com.crypto.wallet.model.CurrencyType
+import com.crypto.commons.enums.CurrencyType
 
 data class CurrencyBalanceDetail(
     val id: Long,
