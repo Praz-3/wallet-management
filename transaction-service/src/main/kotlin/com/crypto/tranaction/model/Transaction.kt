@@ -12,17 +12,17 @@ data class Transaction(
     val id: Long = 0,
 
     @Column(nullable = false)
-    val senderWalletId: Long,
+    val senderWalletId: Long = 0,
 
     @Column(nullable = false)
-    val recipientWalletId: Long,
+    val recipientWalletId: Long = 0,
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    val cryptoCurrencyType: CurrencyType,
+    val cryptoCurrencyType: CurrencyType = CurrencyType.BITCOIN,
 
     @Column(nullable = false)
-    val amount: Double,
+    val amount: Double = 0.0,
 
     @Column(nullable = false)
     val timestamp: LocalDateTime = LocalDateTime.now(),
@@ -32,5 +32,5 @@ data class Transaction(
     var status: TransactionStatus = TransactionStatus.PENDING,
 
     @Column(nullable = false)
-    var transactionId: String
+    var transactionId: String = ""
 )

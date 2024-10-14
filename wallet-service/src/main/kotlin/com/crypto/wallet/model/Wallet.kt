@@ -11,16 +11,16 @@ data class Wallet(
     val id: Long = 0,
 
     @Column(nullable = false, unique = true)
-    val userId: Long,
+    val userId: Long = 0,
 
     @Column(nullable = false)
-    var walletAddress: String,
+    var walletAddress: String = "",
 
     @OneToMany(mappedBy = "wallet", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     val currencyBalances: MutableList<CurrencyBalance> = mutableListOf(),
 
     @Column(nullable = false)
-    var privateKey: String
+    var privateKey: String = ""
 ) {
     class Builder {
         private var userId: Long = 0

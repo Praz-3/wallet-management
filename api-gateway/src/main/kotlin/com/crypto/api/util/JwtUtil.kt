@@ -10,7 +10,7 @@ import java.util.Date
 @Component
 class JwtUtil {
 
-    private val secretKey = "CryptoWalletManagementTestKey121024"
+    private val secretKey = "Crypto121024"
     private val jwtExpirationMs = 3600000  // 1 hour
 
     fun generateToken(userDetails: UserDetails): String {

@@ -5,7 +5,7 @@ import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 
 object EncryptionUtils {
-    private const val SECRET_KEY = "CryptoWalletManagementTestKey121024"
+    private const val SECRET_KEY = "CryptoKey0121024"
 
     fun encrypt(data: String): String {
         val keySpec = SecretKeySpec(SECRET_KEY.toByteArray(), "AES")

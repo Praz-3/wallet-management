@@ -3,7 +3,7 @@ application:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/transaction_db
+    url: jdbc:postgresql://localhost:5435/transaction_db
     username: postgres
     password: postgres
   jpa:
@@ -19,6 +19,10 @@ spring:
 
 server:
   port: 8082
+
+wallet:
+  service:
+    name: localhost:8081
 
 eureka:
   client:

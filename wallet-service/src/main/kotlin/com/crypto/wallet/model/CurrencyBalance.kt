@@ -12,12 +12,12 @@ data class CurrencyBalance(
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    val currencyType: CurrencyType,
+    val currencyType: CurrencyType = CurrencyType.BITCOIN,
 
     @Column(nullable = false)
     var balance: Double = 0.0,
 
     @ManyToOne
     @JoinColumn(name = "wallet_id", nullable = false)
-    var wallet: Wallet?
+    var wallet: Wallet? = null
 )

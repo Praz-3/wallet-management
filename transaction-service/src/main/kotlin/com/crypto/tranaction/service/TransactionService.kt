@@ -8,6 +8,8 @@ import com.crypto.tranaction.model.Transaction
 import com.crypto.tranaction.model.TransactionRepository
 import com.crypto.tranaction.model.TransactionStatus
 import com.crypto.tranaction.util.toTransactionDetail
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -19,6 +21,7 @@ class TransactionService(
     private val transactionRepository: TransactionRepository,
     private val walletClient: WalletClient
 ) {
+    private val logger: Logger = LoggerFactory.getLogger(TransactionService::class.java)
 
     @Transactional
     fun performTransaction(transactionRequest: TransactionRequest): TransactionDetail {
@@ -81,6 +84,7 @@ class TransactionService(
             )
             transaction.status = TransactionStatus.COMPLETED
         } catch (e: Exception) {
+            logger.error("Transaction Failed", e)
             transaction.status = TransactionStatus.FAILED
         } finally {
             transactionRepository.save(transaction)

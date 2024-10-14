@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono
 @RequestMapping("/price")
 class PriceController(private val priceService: PriceService) {
 
-    @GetMapping("/wallet/{userId}/total-value")
+    @GetMapping("/wallet/total-value/{userId}")
     fun getTotalWalletValue(@PathVariable userId: Long): Mono<Double> {
         return priceService.getTotalWalletValueInUSD(userId)
     }

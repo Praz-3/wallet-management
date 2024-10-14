@@ -15,7 +15,7 @@ class WalletClient(private val restTemplate: RestTemplate) {
     private lateinit var walletServiceName: String
 
     fun fetchWallet(walletId: Long): WalletDetail {
-        val walletServiceUrl = "http://$walletServiceName/api/wallets/$walletId"
+        val walletServiceUrl = "http://$walletServiceName/api/wallet/detail/$walletId"
         return try {
             restTemplate.getForObject(walletServiceUrl, WalletDetail::class.java)
                 ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "Wallet not found")
@@ -25,7 +25,7 @@ class WalletClient(private val restTemplate: RestTemplate) {
     }
 
     fun updateWalletBalance(walletBalanceUpdateRequest: WalletBalanceUpdateRequest) {
-        val walletServiceUrl = "http://$walletServiceName/api/wallets/update-balance"
+        val walletServiceUrl = "http://$walletServiceName/api/wallet/update-balance"
 
         try {
             restTemplate.put(walletServiceUrl, walletBalanceUpdateRequest)

@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  crypto-db:
+    image: crypto-db:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      - '5435:5432'
+    expose:
+      - '5435'
+    volumes:
+      - postgres2:/var/lib/postgresql/data
+
+volumes:
+  postgres2:

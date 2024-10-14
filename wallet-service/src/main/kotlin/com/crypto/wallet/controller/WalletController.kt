@@ -5,7 +5,6 @@ import com.crypto.commons.dto.WalletDetail
 import com.crypto.wallet.dto.WalletCreationRequest
 import com.crypto.wallet.service.WalletService
 import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -13,26 +12,24 @@ import org.springframework.web.bind.annotation.*
 class WalletController(private val walletService: WalletService) {
 
     @PostMapping("/create")
-    fun createWallet(@RequestBody walletCreationRequest: WalletCreationRequest): ResponseEntity<WalletDetail> {
-        val createdWallet = walletService.createWallet(walletCreationRequest)
-        return ResponseEntity(createdWallet, HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createWallet(@RequestBody walletCreationRequest: WalletCreationRequest): WalletDetail {
+        return walletService.createWallet(walletCreationRequest)
     }
 
     @PutMapping("/update-balance")
-    fun updateWalletBalance(@RequestBody walletBalanceUpdateRequest: WalletBalanceUpdateRequest): ResponseEntity<WalletDetail> {
-        val updatedWallet = walletService.updateWalletBalance(walletBalanceUpdateRequest)
-        return ResponseEntity(updatedWallet, HttpStatus.OK)
+    fun updateWalletBalance(@RequestBody walletBalanceUpdateRequest: WalletBalanceUpdateRequest): WalletDetail {
+        return walletService.updateWalletBalance(walletBalanceUpdateRequest)
     }
 
     @GetMapping("/detail/{walletId}")
-    fun getWalletDetails(@PathVariable walletId: Long): ResponseEntity<WalletDetail> {
-        val wallet = walletService.getWalletById(walletId)
-        return ResponseEntity(wallet, HttpStatus.OK)
+    fun getWalletDetails(@PathVariable walletId: Long): WalletDetail {
+        return walletService.getWalletById(walletId)
     }
 
     @GetMapping("/user/{userId}")
-    fun getUserWallets(@PathVariable userId: Long): ResponseEntity<WalletDetail> {
-        return ResponseEntity(walletService.getUserWallets(userId), HttpStatus.OK)
+    fun getUserWallets(@PathVariable userId: Long): WalletDetail {
+        return walletService.getUserWallets(userId)
     }
 
     @DeleteMapping("/{walletId}/delete")

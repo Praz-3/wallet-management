@@ -3,7 +3,7 @@ application:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/wallet_db
+    url: jdbc:postgresql://localhost:5435/wallet_db
     username: postgres
     password: postgres
   jpa:
