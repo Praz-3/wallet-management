@@ -32,5 +32,8 @@ data class Transaction(
     var status: TransactionStatus = TransactionStatus.PENDING,
 
     @Column(nullable = false)
-    var transactionId: String = ""
+    var transactionId: String = "",
+
+    @Column(nullable = true)
+    var exceptionMessage: String? = null
 )

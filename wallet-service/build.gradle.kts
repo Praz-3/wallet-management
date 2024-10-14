@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":crypto-commons"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.mockito:mockito-core:5.12.0")
 }
 
 tasks.test {

@@ -40,5 +40,7 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         implementation("org.slf4j:slf4j-api:2.0.9")
         implementation("ch.qos.logback:logback-classic:1.4.11")
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
 }

@@ -29,10 +29,10 @@ class WalletController(private val walletService: WalletService) {
 
     @GetMapping("/user/{userId}")
     fun getUserWallets(@PathVariable userId: Long): WalletDetail {
-        return walletService.getUserWallets(userId)
+        return walletService.getUserWallet(userId)
     }
 
-    @DeleteMapping("/{walletId}/delete")
+    @DeleteMapping("/delete/{walletId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteWallet(@PathVariable walletId: Long) {
         walletService.deleteWallet(walletId)
