@@ -64,7 +64,7 @@ The application uses **PostgreSQL** for data storage. Ensure that you have a Pos
 To deploy the PostgreSQL database and the microservices, follow these steps:
 
 1. **Set Up PostgreSQL**:
-  - Use the following command to start a PostgreSQL container:
+  - Use the following command to create the image:
     ```bash
     docker build -t crypto-db .
     ```
@@ -75,6 +75,7 @@ To deploy the PostgreSQL database and the microservices, follow these steps:
     ```bash
     docker-compose up
     ```
+  - Run all the Services manually for now
 
 3. **Accessing the APIs**:
   - Once all services are running, you can hit the respective endpoints through the API Gateway.
