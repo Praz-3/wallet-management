@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
 
 @RestController
-@RequestMapping("/price")
+@RequestMapping("/api/price")
 class PriceController(private val priceService: PriceService) {
 
     @GetMapping("/wallet/total-value/{userId}")

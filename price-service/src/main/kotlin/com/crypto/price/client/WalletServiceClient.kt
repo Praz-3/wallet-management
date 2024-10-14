@@ -7,15 +7,16 @@ import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono
 
 @Component
-class WalletServiceClient {
-    @Value("\${wallet.service.name}")
-    private lateinit var walletServiceName: String
-
-    private val webClient = WebClient.builder().baseUrl("lb://$walletServiceName").build()
+class WalletServiceClient(
+    @Value("\${wallet.service.name}") private val walletServiceName: String
+) {
+    private val webClient: WebClient = WebClient.builder()
+        .baseUrl("http://$walletServiceName")
+        .build()
 
     fun getUserWallet(userId: Long): Mono<WalletDetail> {
         return webClient.get()
-            .uri("/wallet/user/$userId")
+            .uri("/api/wallet/user/$userId")
             .retrieve()
             .bodyToMono(WalletDetail::class.java)
     }

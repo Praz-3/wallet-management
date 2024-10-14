@@ -1,6 +1,10 @@
 application:
   name: price-service
 
+wallet:
+  service:
+    name: localhost:8081
+
 #eureka:
 #  client:
 #    service-url:
