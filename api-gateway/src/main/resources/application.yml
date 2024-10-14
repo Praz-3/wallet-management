@@ -16,13 +16,16 @@ spring:
           uri: lb://price-service
           predicates:
             - Path=/api/price/**
-        - id: discovery-service
-          uri: lb://discovery-service
+        - id: discovery-server
+          uri: http://localhost:8761
           predicates:
             - Path=/eureka/web
-            - Path=/eureka/**
           filters:
             - SetPath=/
+        - id: discovery-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
 
 eureka:
   client:
