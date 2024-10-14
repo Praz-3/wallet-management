@@ -5,18 +5,29 @@ spring:
     gateway:
       routes:
         - id: wallet-service
-          uri: lb://WALLET-SERVICE
+          uri: lb://wallet-service
           predicates:
-            - Path=/wallet/**
+            - Path=/api/wallet/**
         - id: transaction-service
-          uri: lb://TRANSACTION-SERVICE
+          uri: lb://transaction-service
           predicates:
-            - Path=/transaction/**
+            - Path=/api/transaction/**
         - id: price-service
-          uri: lb://PRICE-SERVICE
+          uri: lb://price-service
           predicates:
-            - Path=/price/**
+            - Path=/api/price/**
+        - id: discovery-service
+          uri: lb://discovery-service
+          predicates:
+            - Path=/eureka/web
+            - Path=/eureka/**
+          filters:
+            - SetPath=/
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8080

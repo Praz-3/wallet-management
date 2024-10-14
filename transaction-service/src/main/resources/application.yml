@@ -1,7 +1,6 @@
-application:
-  name: transaction-service
-
 spring:
+  application:
+    name: transaction-service
   datasource:
     url: jdbc:postgresql://localhost:5435/transaction_db
     username: postgres
@@ -18,11 +17,11 @@ spring:
       platform: postgres
 
 server:
-  port: 8082
+  port: 0
 
 wallet:
   service:
-    name: localhost:8081
+    name: wallet-service
 
 eureka:
   client:

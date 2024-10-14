@@ -1,10 +1,9 @@
 plugins {
     id("org.springframework.boot")
-    id("io.spring.dependency-management")
     kotlin("plugin.spring")
 }
 
-group = "com.crypto.price"
+group = "com.crypto.discovery"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -15,9 +14,7 @@ extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation(project(":crypto-commons"))
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

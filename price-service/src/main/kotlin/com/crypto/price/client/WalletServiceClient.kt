@@ -8,9 +8,10 @@ import reactor.core.publisher.Mono
 
 @Component
 class WalletServiceClient(
-    @Value("\${wallet.service.name}") private val walletServiceName: String
+    @Value("\${wallet.service.name}") private val walletServiceName: String,
+    private val webClientBuilder: WebClient.Builder
 ) {
-    private val webClient: WebClient = WebClient.builder()
+    private val webClient: WebClient = webClientBuilder
         .baseUrl("http://$walletServiceName")
         .build()
 
